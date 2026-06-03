@@ -7,20 +7,7 @@ def board():
     for i in range(1, 10, 3)
     ]
   
-"""
-def created_box():
-  bo = board()
-  
-  for x in bo:
-    for i in x:
-      print(i, end=" ")
-    print()
-  print("_________")
-"""
-  
 
-  
-  
 
 def game():
   board =  [
