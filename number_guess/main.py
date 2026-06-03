@@ -63,19 +63,19 @@ def list_create(level, guess=3):
   else:
     print("No items guessed unfortunatly!!!")
     
-  
-  
+    
 def Level_one():
   print("Level 1")
   print("""
   1. Bigginer\n
   2. Intermediate\n
   3. Hard
+  4. Exit
   """)
   while True:
     try:
       choice = int(input("Enter your choice: "))
-      if choice not in [1,2,3]:
+      if choice not in [1,2,3,4]:
         raise ValueError("invalid input")
       
       else:
@@ -85,16 +85,34 @@ def Level_one():
     
   
   if choice == 1:
-    list_create(10)
+    choice == "y"
+    while choice:
+      list_create(10)
+      choice = input("Play again Y/N: ").lower()
+      if choice == "n":
+        return Level_one()
     
   elif choice == 2:
-    list_create(20, 5)
+    choice == "y"
+    while choice:
+      list_create(20, 5)
+      choice = input("Play again Y/N: ").lower()
+      if choice == "n":
+        return Level_one()
   
   elif choice == 3:
-    list_create(50, 8)
+    choice == "y"
+    while choice:
+      list_create(50, 8)
+      choice = input("Play again Y/N: ").lower()
+      if choice == "n":
+        return Level_one()
+  else:
+    print("Thanks for playing....")
+    return
     
 
-
+Level_one()
 
 
 
