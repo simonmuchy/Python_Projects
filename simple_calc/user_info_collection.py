@@ -66,15 +66,20 @@ def format_phone(phone):
 def get_valid_int(prompt):
     while True:
         try:
-            return int(input(prompt))
-        except ValueError:
-            print("Please enter a valid number")
-        
+            value = int(input(prompt))
+            if value < 0:
+              raise ValueError("Value cannot be negative")
+            return value
+        except ValueError as e:
+            print("Please",e)
+            
+
 first_name = get_valid_input("First name:",is_valid_name,"Name can only contain letters").title()
 
 last_name = get_valid_input("Last name:",is_valid_name," Last name can only contain letters").title()
 
-Age = get_valid_int("How old are you")
+
+age = get_valid_int("How old are you: ")
 
 email = get_valid_input("Email adress:",is_valid_email,"invalid email adress")
 
@@ -88,13 +93,12 @@ experience = get_valid_int("level of experience in coding, in years?")
 
 favorite_language = get_valid_input("Favourite programming language:",is_valid_name,"input can only contain letters").title()
 
-try:
+while True:
   is_learnig = get_valid_input("Are you currently leaning yes/no",is_valid_name,"Name cam only contain letters").lower()
   if is_learnig != "yes" and is_learnig != "no":
-    raise ValueError("Answer can only be yes/no")
-except ValueError as e:
-  print("Error",e)
-  is_learnig = get_valid_input("Are you currently leaning Yes/No",is_valid_name,"Name cam only contain letters").lower()
+    print("Input can only be yes/no")
+  else:
+    break
   
 if experience == 0 or experience == 1:
   experience_level = "Beginner"
@@ -107,8 +111,6 @@ try:
 except:
   avg = 0
   
-
-  
 message = "Keep up the good work bro"
 
 
@@ -120,7 +122,7 @@ print(f"""
 ╠══════════════════════════════════════════════╣
 ║ Name: {first_name} {last_name}
 ║ Age: {Age} years old
-║ Birth Year: {2026 - Age}
+║ Birth Year: {2026 - age}
 ║ Email: {email}
 ║ Phone: {phone_number}
 ║ City: {city}
